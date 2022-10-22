@@ -8,7 +8,6 @@ require_relative 'app/router'
 
 module App
   def self.init
-    handler = Rack::Handler::Thin
     app = Rack::Builder.new do |builder|
       builder.use AdminPolicy
       # BEGIN
@@ -18,7 +17,6 @@ module App
 
       builder.run Router.new
     end
-    handler.run app
   end
 end
 
