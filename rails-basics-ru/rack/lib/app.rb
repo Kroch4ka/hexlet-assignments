@@ -8,7 +8,7 @@ require_relative 'app/router'
 
 module App
   def self.init
-    app = Rack::Builder.new do |builder|
+    Rack::Builder.new do |builder|
       builder.use AdminPolicy
       # BEGIN
       builder.use ExecutionTimer

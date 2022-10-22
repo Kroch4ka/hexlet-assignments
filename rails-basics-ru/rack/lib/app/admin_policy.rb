@@ -8,8 +8,9 @@ class AdminPolicy
   def call(env)
     # BEGIN
     req = Rack::Request.new(env)
-    case req.path
-    when '/admin' then [403, { 'Content-Type': 'text/plain' }, []]
+
+    if req.path.match?(%r{^/admin(/w+)?})
+      [403, { 'Content-Type': 'text/plain' }, []]
     else
       @app.call(env)
     end

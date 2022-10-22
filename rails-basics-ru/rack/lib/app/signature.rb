@@ -9,10 +9,9 @@ class Signature
 
   def call(env)
     # BEGIN
-    secret = 'Hello World!'
-    hash = Digest::SHA256.hexdigest secret
-
     status, headers, body = @app.call(env)
+
+    hash = Digest::SHA256.hexdigest body.first
 
     [status, headers, body << hash]
     # END
