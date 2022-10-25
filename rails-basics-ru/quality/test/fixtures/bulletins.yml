@@ -1,0 +1,9 @@
+first:
+  title: "My first fixture"
+  body: "My first fixture body"
+  published: true
+
+second:
+  title: "My second fixture"
+  body: "My second fixture body"
+  published: true
