@@ -1,0 +1,7 @@
+<h1>My tasks</h1>
+<% @tasks.each do |task| %>
+  <div class="task">
+      <div>Name: <%= link_to task.name, task %> </div>
+      <div>Description: <%= task.description %></div>
+  </div>
+<% end %>

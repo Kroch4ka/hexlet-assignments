@@ -1,0 +1,7 @@
+<h1>My task</h1>
+<div>Name</div>
+<div><%= @task.name %></div>
+<div>Description</div>
+<div><%= @task.description %></div>
+<%= link_to 'create', new_task_path(@task) %>
+<%= link_to 'edit', edit_task_path(@task) %>
