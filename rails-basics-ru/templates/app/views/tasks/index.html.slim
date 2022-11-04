@@ -1,0 +1,7 @@
+h1 My tasks
+ul.tasks
+  - @tasks.each do |task|
+    li
+      = link_to task.name, task_path(task)
+      
+. = link_to "Создать новую задачу", new_task_path
