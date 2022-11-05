@@ -3,20 +3,17 @@ class TasksController < ApplicationController
     @tasks = Task.all
   end
 
-  def show
-    @task = Task.find(params[:id])
-  end
-
   def new
     @task = Task.new
   end
 
   def create
-    @task = Task.create(task_params)
-    if @task
+    @task = Task.new(task_params)
+
+    if @task.save
       redirect_to @task
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -24,21 +21,25 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
 
-  def update
-    task = Task.find(params[:id])
+  def show
+    @task = Task.find(params[:id])
+  end
 
-    if task.update(task_params)
-      redirect_to task_url(task)
+  def update
+    @task = Task.find(params[:id])
+
+    if @task.update(task_params)
+      redirect_to @task
     else
-      redirect_to edit_task_url(task)
+      render @task
     end
   end
 
   def destroy
-    if Task.destroy params[:id]
-      redirect_to tasks_url
+    if Task.delete(params[:id])
+      redirect_to tasks_path
     else
-      redirect_to task_url(params[:id])
+      redirect_to @task
     end
   end
 

@@ -1,3 +1,4 @@
-h1 Title: #{@task.name}
-. = link_to "Редактировать", edit_task_path(@task)
-. = link_to "Удалить", task_path(@task), method: :delete, data: { turbo_confirm: 'Are you sure?' }
+h1 My task
+p.name = @task.name
+
+= link_to "Отредактировать", edit_task_path(@task)
