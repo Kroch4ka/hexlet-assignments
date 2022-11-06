@@ -1,0 +1,5 @@
+h1 My task
+.title = @task.name
+
+= link_to "Редактировать задачу", edit_task_path(@task)
+= link_to "Удалить задачу", task_path(@task), method: :delete

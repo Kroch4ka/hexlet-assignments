@@ -1,0 +1,8 @@
+h1 My tasks
+- @tasks.each do |task|
+  .task
+    .task_title = link_to task.name, task_path(task)
+    .task_status Status: #{task.status.name}
+    .task_user_name User name: #{task.user.name}
+
+= link_to "Создать новую задачу", new_task_path
