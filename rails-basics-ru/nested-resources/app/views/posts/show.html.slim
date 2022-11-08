@@ -1,0 +1,23 @@
+- content_for :title do
+  = @post.title
+p
+  strong.me-2 Body:
+  = @post.body
+/ BEGIN
+h2.create_comment_title Create new comment:
+.create_comment_form
+  = render partial: 'posts/comments/shared/form', locals: { comment: @comment, url: post_comments_path(@post) }
+h2.comments_title Comments:
+.d-flex.flex-column.comments
+  - @post.comments.each do |comment|
+    .comment
+      = comment.body
+      .manage_btns.d-flex
+        = link_to "Destroy", comment_path(comment), method: :delete, data: {confirm: "Are you sure?"}
+        = link_to "Edit", edit_comment_path(comment)
+/ END
+hr
+
+.d-flex
+  = link_to 'Edit', edit_post_path(@post), class: 'btn btn-outline-primary mr-2'
+  = link_to 'Back', :back, class: 'btn btn-outline-primary'
