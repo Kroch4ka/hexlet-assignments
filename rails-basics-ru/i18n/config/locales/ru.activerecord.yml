@@ -1,0 +1,25 @@
+ru:
+  activerecord:
+    models:
+      # BEGIN
+      post: Пост
+      # END
+      post/comment: Комментарий
+
+    attributes:
+      post:
+        # BEGIN
+        body: Содержание
+        title: Заголовок
+        # END
+      post/comment:
+        body: Содержание
+
+    errors:
+      models:
+        post:
+          attributes:
+            # BEGIN
+            body: Содержимое должно быть не пустым
+            title: Заголовок должен быть не пустым
+            # END

@@ -1,0 +1,40 @@
+ru:
+  posts:
+    # BEGIN
+    index:
+      title: Посты
+      comments:
+        empty: нет комментариев
+        one: 1 комментарий
+        two: 2 комментария
+        ten: 10 комментариев
+    # END
+
+    new:
+      title: Новый пост
+
+    edit:
+      title: Изменить пост
+    
+    create:
+      success: Пост создан.
+
+    update:
+      success: Пост обновлен.
+
+    destroy:
+      success: Пост удален.
+
+    show:
+      body: Содержимое
+      comments: Комментарии
+
+    comments:
+      edit:
+        title: Изменить комментарий
+
+      create:
+        success: Комментарий создан.
+
+      update:
+        success: Комментарий обновлен.

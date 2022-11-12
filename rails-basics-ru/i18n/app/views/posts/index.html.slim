@@ -1,0 +1,48 @@
+- content_for :title do
+  / page title (h2)
+  / BEGIN
+  = t('.title')
+  / END
+
+table.table.table-striped.table-hover.mb-5
+  thead
+    tr
+      th{ scope = 'col' } #
+      th{ scope = 'col' }
+        / table title
+        / BEGIN
+        = Post.human_attribute_name('title')
+        / END
+      th
+      th
+
+  tbody
+    - @posts.each_with_index do |post, i|
+      tr
+        th{ scope = 'row' } = i + 1
+        td = post.title
+        td
+          / comments count
+          / BEGIN
+          - if post.comments.count.zero?
+            = t '.comments.empty'
+          - if post.comments.count == 1
+            = t '.comments.one'
+          - if post.comments.count == 2
+            = t '.comments.two'
+          - if post.comments.count == 10
+            = t '.comments.ten'
+          / END
+        td.d-flex
+          / posts links
+          / BEGIN
+          = link_to t('show'), post_path(post)
+          = link_to t('edit'), edit_post_path(post)
+          = link_to t('destroy'), post_path(post), method: :delete, data: { confirm: t('destroy_confirmation') }
+          / END
+
+/ new post link
+= link_to new_post_path, id: 'new-post-link', class: 'btn btn-primary' do
+  / BEGIN
+  = t('posts.new.title')
+  / END
